@@ -7,16 +7,16 @@ fn main() {
             .file("xdotool/xdo.c")
             .file("xdotool/xdo_search.c")
             .compile("xdo");
-    }
 
-    #[cfg(feature = "generate")]
-    {
         println!("cargo:rustc-link-lib=X11");
         println!("cargo:rustc-link-lib=Xtst");
         println!("cargo:rustc-link-lib=Xi");
         println!("cargo:rustc-link-lib=xkbcommon");
         println!("cargo:rustc-link-lib=Xinerama");
+    }
 
+    #[cfg(feature = "generate")]
+    {
         let header_file = "xdotool/xdo.h";
         println!("cargo:rerun-if-changed={}", header_file);
         let bindings = bindgen::Builder::default()
