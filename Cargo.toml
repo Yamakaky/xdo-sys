@@ -1,0 +1,8 @@
+[package]
+name = "xdo-sys"
+version = "0.1.0"
+edition = "2018"
+
+[build-dependencies]
+bindgen = "0.59.1"
+cc = "1.0.69"
