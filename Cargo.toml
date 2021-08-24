@@ -3,6 +3,11 @@ name = "xdo-sys"
 version = "0.1.0"
 edition = "2018"
 
+[features]
+default = ["static"]
+static = ["cc"]
+generate = ["bindgen"]
+
 [build-dependencies]
-bindgen = "0.59.1"
-cc = "1.0.69"
+cc = { version = "1.0.69", optional = true }
+bindgen = { version = "0.59.1", optional = true }
